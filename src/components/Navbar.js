@@ -1,8 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useContext } from 'react'
+import { amountContext } from '../context'
 
 const Navbar = () => {
-    const amount=useSelector(state=>state.amount)
+    const amount=useContext(amountContext);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">

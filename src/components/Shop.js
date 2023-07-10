@@ -1,11 +1,21 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import {actionCreators} from '../state/index';
-import { bindActionCreators } from 'redux';
-
+import { useContext } from 'react';
+import { amountDispatchContext } from '../context';
 const Shop = () => {
-    const dispatch=useDispatch();
-    const {withdrawMoney,depositMoney}=bindActionCreators(actionCreators,dispatch);
+  const dispatch=useContext(amountDispatchContext);
+  function withdrawMoney(money) {
+    dispatch({
+      type: 'withdraw',
+      money:money
+    });
+  }
+
+  function depositMoney(money) {
+    dispatch({
+      type: 'deposit',
+      money:money
+    });
+  }
   return (
     <div>
         <h2>Deposit/Withdraw money</h2>
